@@ -8,10 +8,11 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEOZ95xNls46-Z2MtDvWNPdtJB5IabQj6ABYZe7XJYIpwL5VzI);
+  background-attachment: fixed;
+  height: 500%;
   padding: 20px;
-  color: white;
+  color: orangered;
 }
 
 .App-intro {
