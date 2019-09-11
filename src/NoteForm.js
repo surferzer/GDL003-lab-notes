@@ -21,11 +21,10 @@ class NoteForm extends Component{
     }
 
     writeNote(){
-this.props.addNote(this.state.newNoteContent);
-
-//metodo to set the input value
-this.setState=({
-    newNoteContent: '',
+   this.props.addNote(this.state.newNoteContent);
+   //metodo to set the input value
+   this.setState=({
+    newNoteContent:'',
  })
 }
 
@@ -33,7 +32,7 @@ this.setState=({
         return(
 
             <div className="formWrapper">
-            <input className="noteImput"
+            <input className="noteInput"
             placeholder="Write a new note..." 
             value={this.state.newNoteContent}
             onChange={this.handleUserInput} />
