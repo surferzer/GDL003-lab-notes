@@ -6,7 +6,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 
 
-const firebaseConfig = {
+export const DB_CONFIG = {
   apiKey: "AIzaSyA7gxsmI_tdMXWZJ2fcQS6PU1TMUUXe3c8",
   authDomain: "labnotes003.firebaseapp.com",
   databaseURL: "https://labnotes003.firebaseio.com",
@@ -18,7 +18,7 @@ const firebaseConfig = {
 
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+//firebase.initializeApp(firebaseConfig);
 
 
 
