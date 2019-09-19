@@ -23,9 +23,9 @@ class NoteForm extends Component{
     writeNote(){
    this.props.addNote(this.state.newNoteContent);
    //metodo to set the input value
-   this.setState=({
+   this.setState({
     newNoteContent:'',
- })
+ });
 }
 
     render(){

@@ -10,6 +10,10 @@ class Note extends Component{
     this.noteContent=props.noteContent;
     this.noteId=props.noteId;
     this.handleRemoveNote=this.handleRemoveNote.bind(this);
+    this.handChangeNote=this.handChangeNote.bind(this);
+    this.UpdateData=this.UpdateData.bind(this);
+    
+    
 }
 
 handleRemoveNote(id){
@@ -17,23 +21,24 @@ handleRemoveNote(id){
 
 }
 
-ChangeNote(id){
-    this.props.changeNote(id);
+handChangeNote(id){
+    this.props.ChangeNote(id);
 }
 
 UpdateData(noteContent){
     let newMsj= prompt(noteContent)
         if(newMsj.length>0){
             console.log(newMsj)
+            this.props.ChangeNote(this.props.noteId, newMsj)
             return newMsj;
             
         }else{
             console.log("nota vacía");
         }
-        
-    }
+   }
     
 
+   
 
 
 render(props){

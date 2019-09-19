@@ -9,8 +9,7 @@ import 'firebase/database';
 import firebase from 'firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Card from 'react-bootstrap/Card'
-
-import {UpdateData} from './Note';
+//import {UpdateData} from './Note';
 
 class App extends Component {
  
@@ -19,7 +18,7 @@ constructor(props){
 
 this.addNote=this.addNote.bind(this);
 this.removeNote=this.removeNote.bind(this);
-this.changeNote=this.changeNote.bind(this);
+this.ChangeNote=this.ChangeNote.bind(this);
 
 this.app=firebase.initializeApp(DB_CONFIG);
 this.database=this.app.database().ref().child('notes')  
@@ -59,17 +58,17 @@ this.setState({
 this.database.on('child_changed', snap=>{
   for(let i=0; i<previousNotes.length; i++){
     if(previousNotes[i].id === snap.key){
-     
-      previousNotes[i]=snap.val();
-      console.log('EDITADO')
-      
-     
-    }}
-})
+       previousNotes[i]=snap.val();
+     console.log(snap.val());
+         
+  }
+}
+
 
 this.setState({
   notes:previousNotes
   })
+})
 }
 
 addNote(note){
@@ -80,8 +79,10 @@ removeNote(noteId){
   this.database.child(noteId).remove();
 }
 
-changeNote(noteId){
-  this.database.child(noteId).update({'noteContent': UpdateData()});
+ChangeNote(noteId, newMessage){
+  //const data = UpdateData();
+  console.log(noteId);
+  this.database.child(noteId).update({'noteContent': newMessage});
 }
 
   render() {
@@ -112,7 +113,7 @@ changeNote(noteId){
                 key={note.id}
                 date={note.date} 
                 removeNote={this.removeNote}
-                changeNote={this.changeNote} />
+                ChangeNote={this.ChangeNote} />
               )
             })
         }
