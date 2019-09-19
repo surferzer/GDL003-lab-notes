@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import './Note.css';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
+
 
 class Note extends Component{
     constructor(props){
@@ -14,7 +15,26 @@ class Note extends Component{
 handleRemoveNote(id){
     this.props.removeNote(id);
 
-}    
+}
+
+ChangeNote(id){
+    this.props.changeNote(id);
+}
+
+UpdateData(noteContent){
+    let newMsj= prompt(noteContent)
+        if(newMsj.length>0){
+            console.log(newMsj)
+            return newMsj;
+            
+        }else{
+            console.log("nota vacía");
+        }
+        
+    }
+    
+
+
 
 render(props){
     return(
@@ -24,12 +44,14 @@ render(props){
             &times;
             </span>
             <p className="noteContent">{this.noteContent}</p>
+            <button className="EditButton" 
+            onClick={() => this.UpdateData(this.noteContent)}>"Edit"
+            </button>
             </div>
         
     )
 }
 }
-
 //Note.propTypes={
 //    noteContent: PropTypes.string
 //}

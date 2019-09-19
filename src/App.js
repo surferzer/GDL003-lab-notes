@@ -7,6 +7,10 @@ import NoteForm from './NoteForm';
 import {DB_CONFIG} from './Fire';
 import 'firebase/database';
 import firebase from 'firebase';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import Card from 'react-bootstrap/Card'
+
+import {UpdateData} from './Note';
 
 class App extends Component {
  
@@ -15,6 +19,7 @@ constructor(props){
 
 this.addNote=this.addNote.bind(this);
 this.removeNote=this.removeNote.bind(this);
+this.changeNote=this.changeNote.bind(this);
 
 this.app=firebase.initializeApp(DB_CONFIG);
 this.database=this.app.database().ref().child('notes')  
@@ -50,6 +55,21 @@ this.setState({
   notes:previousNotes
   })
 })
+
+this.database.on('child_changed', snap=>{
+  for(let i=0; i<previousNotes.length; i++){
+    if(previousNotes[i].id === snap.key){
+     
+      previousNotes[i]=snap.val();
+      console.log('EDITADO')
+      
+     
+    }}
+})
+
+this.setState({
+  notes:previousNotes
+  })
 }
 
 addNote(note){
@@ -60,13 +80,16 @@ removeNote(noteId){
   this.database.child(noteId).remove();
 }
 
+changeNote(noteId){
+  this.database.child(noteId).update({'noteContent': UpdateData()});
+}
 
   render() {
     return (
       <view>
              <div className="App">
              <div className="App-header">
-                <h2>Welcome to weed notes</h2> 
+                <h1>¡My WORKOUT daily notes!</h1> 
              </div></div>
             
               <div>
@@ -75,16 +98,21 @@ removeNote(noteId){
                         
               <div className="notesWrapper">
               <div className="notesHeader">
-              <div className="heading">MY NOTES FOR TODAY!</div>
+              <div className="heading">This app is made to write about your trainning days, it will show you the progress in your body and mind</div>
               </div>
       
               <div className="notesBody">{
+                
                   this.state.notes.map((note)=>{
               return(
-                <Note noteContent={note.noteContent} 
+                               
+                <Note 
+                noteContent={note.noteContent} 
                 noteId={note.id} 
-                key={note.id} 
-                removeNote={this.removeNote} />
+                key={note.id}
+                date={note.date} 
+                removeNote={this.removeNote}
+                changeNote={this.changeNote} />
               )
             })
         }

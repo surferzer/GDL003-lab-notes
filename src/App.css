@@ -5,14 +5,16 @@
 
 
 .App-header {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQEOZ95xNls46-Z2MtDvWNPdtJB5IabQj6ABYZe7XJYIpwL5VzI);
-  background-attachment: fixed;
+  background-image: url(https://i.pinimg.com/originals/89/b5/0d/89b50df91b22de344c8d90ee25b3c13a.jpg);
+  background-attachment: center;
+  background-repeat:repeat-x;
+  opacity: 2;
   height: 500%;
   padding: 20px;
-  color: orangered;
+  color: goldenrod;
 }
 
-.App-intro {
+.App-intro {  
   font-size: large;
 }
 
