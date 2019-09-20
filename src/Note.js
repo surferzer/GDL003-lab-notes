@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './Note.css';
 //import PropTypes from 'prop-types';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Note extends Component{
     constructor(props){
@@ -49,7 +49,7 @@ render(props){
             &times;
             </span>
             <p className="noteContent">{this.noteContent}</p>
-            <button className="EditButton" 
+            <button type="button" className="btn btn-link" 
             onClick={() => this.UpdateData(this.noteContent)}>"Edit"
             </button>
             </div>

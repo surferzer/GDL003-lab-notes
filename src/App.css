@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-
+.notesHeader{
+  line-break: inherit
+}
 
 .App-header {
   background-image: url(https://i.pinimg.com/originals/89/b5/0d/89b50df91b22de344c8d90ee25b3c13a.jpg);
@@ -10,8 +12,7 @@
   background-repeat:repeat-x;
   opacity: 2;
   height: 500%;
-  padding: 20px;
-  color: goldenrod;
+  padding-bottom:15%;
 }
 
 .App-intro {  
@@ -21,4 +22,11 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.heading{
+  text-align: center;
+  color:#154360;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
 }

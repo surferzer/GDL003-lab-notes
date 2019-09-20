@@ -82,7 +82,7 @@ removeNote(noteId){
 ChangeNote(noteId, newMessage){
   //const data = UpdateData();
   console.log(noteId);
-  this.database.child(noteId).update({'noteContent': newMessage});
+  this.database.child(noteId).update({'noteContent': newMessage + "      [[¡Mensaje editado!]]"});
 }
 
   render() {
@@ -90,7 +90,7 @@ ChangeNote(noteId, newMessage){
       <view>
              <div className="App">
              <div className="App-header">
-                <h1>¡My WORKOUT daily notes!</h1> 
+                
              </div></div>
             
               <div>
@@ -98,6 +98,7 @@ ChangeNote(noteId, newMessage){
                     </div>
                         
               <div className="notesWrapper">
+              <h1>¡My WORKOUT daily notes!</h1> 
               <div className="notesHeader">
               <div className="heading">This app is made to write about your trainning days, it will show you the progress in your body and mind</div>
               </div>
