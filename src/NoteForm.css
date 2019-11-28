@@ -34,7 +34,9 @@
     transition: 0.2s ease-out;
     display:flex;
     justify-content: center;
-    margin-right:500px;
+    position: relative;
+    left:23%;
+    
 }
 
 .noteInput:focus{
